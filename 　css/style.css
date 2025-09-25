@@ -1,0 +1,20 @@
+/* Homeだけ赤にする */
+nav a:nth-child(1) {
+  color: red;
+}
+
+/* Blogだけ赤にする */
+nav a:nth-child(3) {
+  color: red;
+}
+
+/* Aboutだけ赤にする */
+nav a:nth-child(5) {
+  color: red;
+}
+
+/* クリックした時にくいくい動く */
+nav a:active {
+  transform: scale(0.9) rotate(-5deg); /* 少し縮んで傾く */
+  transition: 0.1s;                     /* 0.1秒で動きが完了する */
+}
