@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<div id="welcome-overlay">
+  <div class="door">
+    <h1>🌼 Nico's Room へようこそ 🌼</h1>
+    <p>クリックして入る</p>
+  </div>
+</div>
+
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
@@ -6,6 +13,19 @@
   <title>Nico's Room</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
+
+<script>
+  const overlay = document.getElementById('welcome-overlay');
+  const door = document.querySelector('.door');
+
+  door.addEventListener('click', () => {
+    overlay.style.opacity = 0;
+    setTimeout(() => overlay.style.display = 'none', 1000);
+  });
+</script>
+
+
+
 <body>
   <header>
     <h1>Nico's Room</h1>
@@ -23,7 +43,7 @@
   <section id="home">
     <h2>Welcome!</h2>
     <p>ここはNicoの創作のお部屋です。作品や日々のことをあたたかくシェアしています。</p>
-  </section>
+  </section>　
 
   <section id="works">
     <h2>Works</h2>

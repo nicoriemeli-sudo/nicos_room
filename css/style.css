@@ -1,3 +1,11 @@
+<div id="welcome-overlay">
+  <div class="door">
+    <h1>🌼 Nico's Room へようこそ 🌼</h1>
+    <p>クリックして入る</p>
+  </div>
+</div>
+
+
 /* 基本スタイル */
 body {
   font-family: 'Segoe UI', sans-serif;
