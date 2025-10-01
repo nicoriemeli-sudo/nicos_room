@@ -1,12 +1,6 @@
-<div id="welcome-overlay">
-  <div class="door">
-    <h1>🌼 Nico's Room へようこそ 🌼</h1>
-    <p>クリックして入る</p>
-  </div>
-</div>
-
-
-/* 基本スタイル */
+/* --------------------
+   基本スタイル
+-------------------- */
 body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
@@ -14,6 +8,7 @@ body {
   color: #4b2e2e;
 }
 
+/* ヘッダー */
 header {
   background: #ffdadb;
   text-align: center;
@@ -27,6 +22,7 @@ header h1 {
   color: #d36c6c;
 }
 
+/* ナビゲーション */
 nav {
   background: #fff0e1;
   display: flex;
@@ -56,13 +52,15 @@ nav a:nth-child(5) {
   color: red;
 }
 
-/* クリックした時にくいくい動く */
+/* クリックした時に動き */
 nav a:active {
   transform: scale(0.9) rotate(-5deg);
   transition: 0.1s;
 }
 
-/* 作品やギャラリーのスタイル */
+/* --------------------
+   セクション
+-------------------- */
 section {
   padding: 2rem;
 }
@@ -86,6 +84,7 @@ section {
   border-radius: 8px;
 }
 
+/* フッター */
 footer {
   background: #ffeae1;
   text-align: center;
@@ -102,32 +101,30 @@ a.button {
   border-radius: 20px;
   text-decoration: none;
 }
-/* 扉 */
-#door-overlay {
+
+/* --------------------
+   扉アニメーション
+-------------------- */
+#door-container {
   position: fixed;
   top: 0; left: 0;
   width: 100%;
   height: 100%;
-  background: #ffdadb;
+  background: #fff;
   z-index: 999;
-  animation: openDoor 2s forwards;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* ホームのフェードイン */
+#door-gif {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ホームは最初非表示 → 後でフェードイン */
 #home-content {
   opacity: 0;
-  animation: showHome 2s forwards;
-  animation-delay: 2s; /* 扉が開いたあとに表示 */
-}
-
-/* 扉が開くアニメーション */
-@keyframes openDoor {
-  0% { transform: scaleX(1); }
-  100% { transform: scaleX(0); }
-}
-
-/* ホームもくもくフェードイン */
-@keyframes showHome {
-  0% { opacity: 0; transform: scale(1.05); }
-  100% { opacity: 1; transform: scale(1); }
+  transition: opacity 1.5s ease;
 }
