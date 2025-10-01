@@ -128,3 +128,20 @@ a.button {
   opacity: 0;
   transition: opacity 1.5s ease;
 }
+/* --------------------
+   扉ズームイン演出
+-------------------- */
+#door-container.zoom {
+  animation: zoomIn 1.5s forwards;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(3);  /* 拡大して */
+    opacity: 0;           /* 消える */
+  }
+}

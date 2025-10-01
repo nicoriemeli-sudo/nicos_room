@@ -121,21 +121,21 @@
 
   <!-- スクリプト -->
   <script>
-    const door = document.getElementById("door-container");
-    const home = document.getElementById("home-content");
-    const whiteOverlay = document.getElementById("white-overlay");
+  const door = document.getElementById("door-container");
+  const home = document.getElementById("home-content");
 
-    // 3秒後に白フェード開始
+  // 3秒後にズーム開始
+  setTimeout(() => {
+    door.classList.add("zoom");  // CSSのアニメーションを適用
+
+    // ズームが終わる1.5秒後にホームを表示
     setTimeout(() => {
-      whiteOverlay.style.opacity = 1;
-      // 1秒後にホーム表示
-      setTimeout(() => {
-        door.style.display = "none";     // 扉を消す
-        whiteOverlay.style.display = "none"; // 白オーバーレイも消す
-        home.style.opacity = 1;          // ホームをフェードイン
-      }, 1000);
-    }, 3000);
-  </script>
+      door.style.display = "none"; // 扉を消す
+      home.style.opacity = 1;      // ホームをフェードイン
+    }, 1500);
+  }, 3000);
+</script>
+
 
 </body>
 </html>
