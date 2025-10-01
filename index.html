@@ -50,7 +50,8 @@
 
   <!-- 扉アニメーション -->
   <div id="door-container">
-    <img id="door-gif" src="images/door.gif" alt="Door Animation">
+    <img id="door-frame" src="images/door1.png" alt="Door Animation">
+
   </div>
 
   <!-- 白フェード用 -->
@@ -124,16 +125,38 @@
   const door = document.getElementById("door-container");
   const home = document.getElementById("home-content");
 
-  // 3秒後にズーム開始
-  setTimeout(() => {
-    door.classList.add("zoom");  // CSSのアニメーションを適用
+  <script>
+  const door = document.getElementById("door-container");
+  const home = document.getElementById("home-content");
+  const doorFrame = document.getElementById("door-frame");
 
-    // ズームが終わる1.5秒後にホームを表示
-    setTimeout(() => {
-      door.style.display = "none"; // 扉を消す
-      home.style.opacity = 1;      // ホームをフェードイン
-    }, 1500);
-  }, 3000);
+  const frames = [
+    "images/door1.png",
+    "images/door2.png",
+    "images/door3.png",
+    "images/door4.png"
+  ];
+
+  let current = 0;
+
+  function nextFrame() {
+    current++;
+    if (current < frames.length) {
+      doorFrame.src = frames[current];  // 次の画像に切り替え
+      setTimeout(nextFrame, 500); // 0.5秒ごとに切り替え（調整OK）
+    } else {
+      // 最後のフレームが出たら扉を消してホーム表示
+      setTimeout(() => {
+        door.style.display = "none";
+        home.style.opacity = 1;
+      }, 500);
+    }
+  }
+
+  // 最初のフレームから開始（1秒後にアニメーション開始）
+  setTimeout(nextFrame, 1000);
+</script>
+
 </script>
 
 
