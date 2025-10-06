@@ -145,3 +145,38 @@ a.button {
 .button.suzuri {
   background: #b3d4fc; /* 水色っぽく */
 }
+
+#home-content {
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+
+#home-content.show {
+  opacity: 1;
+}
+
+#door-container {
+  position: fixed;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#fff;
+  z-index:999;
+}
+
+.door {
+  width:266px;
+  height:400px;
+  background:url('images/door1.png') center/cover no-repeat;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.door.open {
+  transform: scale(1.2);
+  opacity: 0;
+}
+
+
