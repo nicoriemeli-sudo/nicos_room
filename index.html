@@ -121,7 +121,7 @@
 
   <!-- スクリプト -->
 <script>
-  window.onload = () => {
+window.onload = () => {
   const door = document.querySelector('.door');
   const home = document.getElementById('home-content');
   const doorContainer = document.getElementById('door-container');
@@ -140,12 +140,15 @@
     i++;
     if (i >= frames.length) {
       clearInterval(interval);
-      // ドア開いたらホーム表示
+
+      // ドアを少し大きくして消す
       door.classList.add('open');
+
+      // ドアのトランジション時間と合わせてホーム表示
       setTimeout(() => {
-        home.classList.add('show');
-        doorContainer.style.display = 'none';
-      }, 300);
+        home.classList.add('show');          // ホームを表示
+        doorContainer.style.display = 'none'; // ドアを非表示
+      }, 500); // CSS transition と同じ時間
     }
   }, 200);
 };

@@ -115,11 +115,12 @@ a.button {
 }
 
 .door {
-  width: 400px;
-  height: 600px;
+  width: 266px;  /* 元が400pxなら約3分の2 */
+  height: 400px; /* 元が600pxなら3分の2 */
   background: url('images/door1.png') center/cover no-repeat;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition: transform 0.5s ease, opacity 0.5s ease; /* スピードも調整可能 */
 }
+
 
 /* ドア消える演出 */
 .door.open {
