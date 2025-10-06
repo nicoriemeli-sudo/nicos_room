@@ -118,9 +118,9 @@ a.button {
 
 .door {
   background: #fff7f2 url('images/door.png') center/cover no-repeat;
-}
   transition: transform 1.5s ease-in-out;
 }
+
 
 .door.top-left.open { transform: translate(-100%, -100%); }
 .door.top-right.open { transform: translate(100%, -100%); }
