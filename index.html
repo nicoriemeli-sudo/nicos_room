@@ -8,7 +8,8 @@
 </head>
 <body>
 
-  <!-- 扉アニメーシ<!-- 置き換え用：index.html の head 内で <link> の直後にこれを入れる -->
+<!-- 扉アニメーション -->
+
 <style>
   /* 外部 CSS に扉レイアウト（grid）を任せるため、
      head のインラインでは door の display を指定しない */
@@ -32,14 +33,11 @@
     pointer-events: none;
   }
 </style>
-ョン -->
+
 <div id="door-container">
   <div class="door single-door"></div>
 </div>
 
-<div id="home-content">
-  <!-- ページの中身 -->
-</div>
 
 
   <!-- ホームコンテンツ -->
@@ -119,44 +117,26 @@
 
   <!-- スクリプト -->
 <script>
-  window.onload = () => {
-    const doors = document.querySelectorAll('.door');
-    const home = document.getElementById('home-content');
-    const doorContainer = document.getElementById('door-container');
-
-    // 扉を開く
-    setTimeout(() => {
-      doors.forEach(d => d.classList.add('open'));
-    }, 800);
-
-    // フェードアウト & ホーム表示
-    setTimeout(() => {
-      doorContainer.classList.add('fade-out');
-      home.classList.add('show');
-
-      // フェードが終わったら完全に非表示
-      setTimeout(() => {
-        doorContainer.style.display = 'none';
-      }, 700);
-    }, 2000);
-  };
-</script>
-</body>
-</html>
-
 window.onload = () => {
   const door = document.querySelector('.single-door');
   const home = document.getElementById('home-content');
+  const doorContainer = document.getElementById('door-container');
 
   // 扉を開く
   setTimeout(() => {
     door.classList.add('open');
   }, 800);
 
-  // 扉が開いたらページを表示
+  // 扉が開いたらホーム表示
   setTimeout(() => {
     home.classList.add('show');
-    document.getElementById('door-container').style.display = 'none';
+
+    // 扉を非表示
+    doorContainer.style.display = 'none';
   }, 2200);
 };
+</script>
+</body>
+</html>
+
 
