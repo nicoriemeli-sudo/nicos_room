@@ -5,56 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nico's Room</title>
   <link rel="stylesheet" href="css/style.css">
-  <style>
-    /* 扉アニメーションのオーバーレイ */
-    #door-container {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      background: #fff;
-      z-index: 999;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-    }
-
-    #door-gif {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
-    /* ホームは最初非表示 */
-    #home-content {
-      opacity: 0;
-      transition: opacity 1.5s ease;
-    }
-
-    /* 白フェード用オーバーレイ */
-    #white-overlay {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      background: white;
-      z-index: 998;
-      opacity: 0;
-      transition: opacity 1s ease;
-      pointer-events: none;
-    }
-  </style>
 </head>
 <body>
 
-  <!-- 扉アニメーション -->
-  <div id="door-container">
-    <div class="door top-left"></div>
-    <div class="door top-right"></div>
-    <div class="door bottom-left"></div>
-    <div class="door bottom-right"></div>
-  </div>
+  <!-- 扉アニメーシ<!-- 置き換え用：index.html の head 内で <link> の直後にこれを入れる -->
+<style>
+  /* 外部 CSS に扉レイアウト（grid）を任せるため、
+     head のインラインでは door の display を指定しない */
+
+  /* ホームは最初非表示（外部 CSS と重複しても問題なし） */
+  #home-content {
+    opacity: 0;
+    transition: opacity 1.5s ease;
+  }
+
+  /* 白フェード用（必要なら残す） */
+  #white-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    z-index: 998;
+    opacity: 0;
+    transition: opacity 1s ease;
+    pointer-events: none;
+  }
+</style>
+ョン -->
+<div id="door-container">
+  <div class="door single-door"></div>
+</div>
+
+<div id="home-content">
+  <!-- ページの中身 -->
+</div>
 
 
   <!-- ホームコンテンツ -->
@@ -133,22 +118,45 @@
   </div>
 
   <!-- スクリプト -->
-  <script>
-    window.onload = () => {
- 　　　const doors = document.querySelectorAll('.door'); // ← .doors → .door に修正
-      const home = document.getElementById('home-content');
+<script>
+  window.onload = () => {
+    const doors = document.querySelectorAll('.door');
+    const home = document.getElementById('home-content');
+    const doorContainer = document.getElementById('door-container');
 
-  // 扉を開くアニメーション
-      setTimeout(() => {
-        doors.forEach(d => d.classList.add('open'));
-      }, 800);
+    // 扉を開く
+    setTimeout(() => {
+      doors.forEach(d => d.classList.add('open'));
+    }, 800);
 
-      // 少し遅れてホームをフェードイン
+    // フェードアウト & ホーム表示
+    setTimeout(() => {
+      doorContainer.classList.add('fade-out');
+      home.classList.add('show');
+
+      // フェードが終わったら完全に非表示
       setTimeout(() => {
-        home.classList.add('show');
-        document.getElementById('door-container').style.display = 'none';
-      }, 2000);
-    };
-  </script>
+        doorContainer.style.display = 'none';
+      }, 700);
+    }, 2000);
+  };
+</script>
 </body>
 </html>
+
+window.onload = () => {
+  const door = document.querySelector('.single-door');
+  const home = document.getElementById('home-content');
+
+  // 扉を開く
+  setTimeout(() => {
+    door.classList.add('open');
+  }, 800);
+
+  // 扉が開いたらページを表示
+  setTimeout(() => {
+    home.classList.add('show');
+    document.getElementById('door-container').style.display = 'none';
+  }, 2200);
+};
+

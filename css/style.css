@@ -101,40 +101,34 @@ a.button {
   border-radius: 20px;
   text-decoration: none;
 }
-
-/* --------------------
-   扉アニメーション
--------------------- */
+/* 扉全体 */
 #door-container {
   position: fixed;
   top: 0; left: 0;
   width: 100%;
   height: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
   z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  overflow: hidden;
 }
 
-.door {
-  background: #fff7f2 url('images/door.png') center/cover no-repeat;
+/* 1つの扉 */
+.door.single-door {
+  background: url('images/door1.png') center/cover no-repeat;
+  width: 400px;
+  height: 600px;
   transition: transform 1.5s ease-in-out;
 }
 
-
-.door.top-left {
-  background: url('../images/door1.png') center/cover no-repeat;
-}
-.door.top-right {
-  background: url('../images/door2.png') center/cover no-repeat;
-}
-.door.bottom-left {
-  background: url('../images/door3.png') center/cover no-repeat;
-}
-.door.bottom-right {
-  background: url('../images/door4.png') center/cover no-repeat;
+/* 扉が開く */
+.door.single-door.open {
+  transform: translateY(-150%);
 }
 
+/* ページコンテンツ最初は非表示 */
 #home-content {
   opacity: 0;
   transition: opacity 1s ease;
@@ -144,34 +138,8 @@ a.button {
 }
 
 
-/* ホームは最初非表示 → 後でフェードイン */
-#home-content {
-  opacity: 0;
-  transition: opacity 1.5s ease;
-}
-/* --------------------
-   扉ズームイン演出
--------------------- */
-#door-container.zoom {
-  animation: zoomIn 1.5s forwards;
-}
-
-#door-container.zoom {
-  animation: zoomIn 1.5s forwards;
-  animation-iteration-count: 1; /* 1回で止まる */
-}
 
 
-@keyframes zoomIn {
-  from {
-    transform: scale(1);
-    opacity: 1;
-  }
-  to {
-    transform: scale(3);  /* 拡大して */
-    opacity: 0;           /* 消える */
-  }
-}
 .shop-links {
   display: flex;
   flex-direction: column;
