@@ -117,7 +117,8 @@ a.button {
 }
 
 .door {
-  background: #fff7f2 url('images/door.jpg') center/cover no-repeat;
+  background: #fff7f2 url('images/door.png') center/cover no-repeat;
+}
   transition: transform 1.5s ease-in-out;
 }
 
