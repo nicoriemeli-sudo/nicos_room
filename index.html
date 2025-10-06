@@ -50,12 +50,12 @@
 
   <!-- 扉アニメーション -->
   <div id="door-container">
-    <img id="door-frame" src="images/door1.png" alt="Door Animation">
-
+    <div class="door top-left"></div>
+    <div class="door top-right"></div>
+    <div class="door bottom-left"></div>
+    <div class="door bottom-right"></div>
   </div>
 
-  <!-- 白フェード用 -->
-  <div id="white-overlay"></div>
 
   <!-- ホームコンテンツ -->
   <div id="home-content">
@@ -122,43 +122,21 @@
 
   <!-- スクリプト -->
   <script>
-  const door = document.getElementById("door-container");
-  const home = document.getElementById("home-content");
+    window.onload = () => {
+  const door = document.querySelectorAll('.doors');
+  const home = document.getElementById('home-content');
 
-  <script>
-  const door = document.getElementById("door-container");
-  const home = document.getElementById("home-content");
-  const doorFrame = document.getElementById("door-frame");
-
-  const frames = [
-    "images/door1.png",
-    "images/door2.png",
-    "images/door3.png",
-    "images/door4.png"
-  ];
-
-  let current = 0;
-
-  function nextFrame() {
-    current++;
-    if (current < frames.length) {
-      doorFrame.src = frames[current];  // 次の画像に切り替え
-      setTimeout(nextFrame, 500); // 0.5秒ごとに切り替え（調整OK）
-    } else {
-      // 最後のフレームが出たら扉を消してホーム表示
+  // 扉を開くアニメーション
       setTimeout(() => {
-        door.style.display = "none";
-        home.style.opacity = 1;
-      }, 500);
-    }
-  }
+        doors.forEach(d => d.classList.add('open'));
+      }, 800);
 
-  // 最初のフレームから開始（1秒後にアニメーション開始）
-  setTimeout(nextFrame, 1000);
-</script>
-
-</script>
-
-
+      // 少し遅れてホームをフェードイン
+      setTimeout(() => {
+        home.classList.add('show');
+        document.getElementById('door-container').style.display = 'none';
+      }, 2000);
+    };
+  </script>
 </body>
 </html>

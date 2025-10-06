@@ -110,23 +110,46 @@ a.button {
   top: 0; left: 0;
   width: 100%;
   height: 100%;
-  background: #fff;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
   z-index: 999;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
-#door-gif {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+.door {
+  background: #fff7f2 url('images/door.jpg') center/cover no-repeat;
+  transition: transform 1.5s ease-in-out;
 }
+
+.door.top-left.open { transform: translate(-100%, -100%); }
+.door.top-right.open { transform: translate(100%, -100%); }
+.door.bottom-left.open { transform: translate(-100%, 100%); }
+.door.bottom-right.open { transform: translate(100%, 100%); }
+
+#home-content {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+#home-content.show {
+  opacity: 1;
+}
+
 
 /* ホームは最初非表示 → 後でフェードイン */
 #home-content {
   opacity: 0;
   transition: opacity 1.5s ease;
+}
+/* --------------------
+   扉ズームイン演出
+-------------------- */
+#door-container.zoom {
+  animation: zoomIn 1.5s forwards;
+}
+
+#door-container.zoom {
+  animation: zoomIn 1.5s forwards;
+  animation-iteration-count: 1; /* 1回で止まる */
 }
 
 
