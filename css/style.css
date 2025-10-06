@@ -101,42 +101,19 @@ a.button {
   border-radius: 20px;
   text-decoration: none;
 }
-/* 扉全体 */
-#door-container {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 999;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #fff;
-  overflow: hidden;
-}
-
-/* 1つの扉 */
-.door.single-door {
-  background: url('images/door1.png') center/cover no-repeat;
+/* ドア全体 */
+.door {
   width: 400px;
   height: 600px;
-  transition: transform 1.5s ease-in-out;
+  background: url('images/door1.png') center/cover no-repeat;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* 扉が開く */
-.door.single-door.open {
-  transform: translateY(-150%);
-}
-
-/* ページコンテンツ最初は非表示 */
-#home-content {
+/* ドア消える演出 */
+.door.open {
+  transform: scale(1.2);
   opacity: 0;
-  transition: opacity 1s ease;
 }
-#home-content.show {
-  opacity: 1;
-}
-
 
 
 

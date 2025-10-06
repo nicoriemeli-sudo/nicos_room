@@ -35,7 +35,11 @@
 </style>
 
 <div id="door-container">
-  <div class="door single-door"></div>
+  <img src="images/door.gif" alt="Door Opening" class="door">
+</div>
+
+<div id="home-content">
+  <!-- Webページの中身 -->
 </div>
 
 
@@ -117,24 +121,35 @@
 
   <!-- スクリプト -->
 <script>
-window.onload = () => {
-  const door = document.querySelector('.single-door');
+  window.onload = () => {
+  const door = document.querySelector('.door');
   const home = document.getElementById('home-content');
   const doorContainer = document.getElementById('door-container');
 
-  // 扉を開く
-  setTimeout(() => {
-    door.classList.add('open');
-  }, 800);
+  const frames = [
+    'images/door1.png',
+    'images/door2.png',
+    'images/door3.png',
+    'images/door4.png'
+  ];
 
-  // 扉が開いたらホーム表示
-  setTimeout(() => {
-    home.classList.add('show');
+  let i = 0;
 
-    // 扉を非表示
-    doorContainer.style.display = 'none';
-  }, 2200);
+  const interval = setInterval(() => {
+    door.style.backgroundImage = `url(${frames[i]})`;
+    i++;
+    if (i >= frames.length) {
+      clearInterval(interval);
+      // ドア開いたらホーム表示
+      door.classList.add('open');
+      setTimeout(() => {
+        home.classList.add('show');
+        doorContainer.style.display = 'none';
+      }, 300);
+    }
+  }, 200); // 画像切り替えの速度
 };
+
 </script>
 </body>
 </html>
