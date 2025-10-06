@@ -123,19 +123,16 @@ a.button {
 
 
 .door.top-left {
-  background: url('images/door1.png') center/cover no-repeat;
+  background: url('../images/door1.png') center/cover no-repeat;
 }
-
 .door.top-right {
-  background: url('images/door2.png') center/cover no-repeat;
+  background: url('../images/door2.png') center/cover no-repeat;
 }
-
 .door.bottom-left {
-  background: url('images/door3.png') center/cover no-repeat;
+  background: url('../images/door3.png') center/cover no-repeat;
 }
-
 .door.bottom-right {
-  background: url('images/door4.png') center/cover no-repeat;
+  background: url('../images/door4.png') center/cover no-repeat;
 }
 
 #home-content {
