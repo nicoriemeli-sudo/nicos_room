@@ -116,14 +116,9 @@ a.button {
 
 .door {
   width: 266px;
-  height: 400px;
-  background: url('images/door.gif') center/cover no-repeat;
-  transition: transform 1.5s ease, opacity 1.5s ease; /* ← 1.5秒に変更してゆっくり開く */
-}
-
-.door.open {
-  transform: scale(1.2);
-  opacity: 0;
+  height: auto;
+  max-height: 400px;
+  /* background: url('images/door.gif') center/cover no-repeat; ←これを削除！ */
 }
 
 
