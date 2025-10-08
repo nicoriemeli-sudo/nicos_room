@@ -115,14 +115,12 @@ a.button {
 }
 
 .door {
-  width: 266px;  /* 元が400pxなら約3分の2 */
-  height: 400px; /* 元が600pxなら3分の2 */
+  width: 266px;
+  height: 400px;
   background: url('images/door1.png') center/cover no-repeat;
-  transition: transform 0.5s ease, opacity 0.5s ease; /* スピードも調整可能 */
+  transition: transform 1.5s ease, opacity 1.5s ease; /* ← 1.5秒に変更してゆっくり開く */
 }
 
-
-/* ドア消える演出 */
 .door.open {
   transform: scale(1.2);
   opacity: 0;

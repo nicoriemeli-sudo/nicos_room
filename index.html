@@ -123,31 +123,21 @@ window.onload = () => {
   const home = document.getElementById('home-content');
   const doorContainer = document.getElementById('door-container');
 
-  const frames = [
-    'images/door1.png',
-    'images/door2.png',
-    'images/door3.png',
-    'images/door4.png'
-  ];
+window.onload = () => {
+  const door = document.querySelector('.door');
+  const home = document.getElementById('home-content');
+  const doorContainer = document.getElementById('door-container');
 
-  let i = 0;
+  // 2秒後にドアが開く（アニメーションゆっくり）
+  setTimeout(() => {
+    door.classList.add('open');
 
-  const interval = setInterval(() => {
-    door.style.backgroundImage = `url(${frames[i]})`;
-    i++;
-    if (i >= frames.length) {
-      clearInterval(interval);
-
-      // ドアを少し大きくして消す
-      door.classList.add('open');
-
-      // ドアのトランジション時間と合わせてホーム表示
-      setTimeout(() => {
-        home.classList.add('show');          // ホームを表示
-        doorContainer.style.display = 'none'; // ドアを非表示
-      }, 500); // CSS transition と同じ時間
-    }
-  }, 200);
+    // ドアが完全に開いたあとにホームページを表示
+    setTimeout(() => {
+      home.classList.add('show');
+      doorContainer.style.display = 'none';
+    }, 1500); // ← ドアが開くアニメ時間と合わせる
+  }, 1000); // ← ページ読み込み後に少し待ってから開く
 };
 
 </script>
