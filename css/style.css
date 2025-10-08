@@ -182,3 +182,9 @@ a.button {
 }
 
 
+/* Notion埋め込みをBlogセクションに合わせて調整 */
+#blog iframe {
+  max-width: 100%;
+  height: 800px; /* 高さは必要に応じて変更 */
+  border: none;
+}
