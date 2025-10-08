@@ -155,9 +155,6 @@ a.button {
 
 /* ドア全体 */
 #door-container {
-
-/* ドア画像 */
-#door-container {
   position: fixed;
   top: 0; left: 0;
   width: 100%;
@@ -173,14 +170,12 @@ a.button {
   width: 266px;
   height: 400px;
   background: url('images/door1.png') center/cover no-repeat;
-  transition: opacity 0.5s ease;
-  cursor: pointer;
+  transition: opacity 1s ease;
 }
 
-/* 開いたあとの演出 */
+/* 開いたあとにフェードアウト */
 .door.fade-out {
   opacity: 0;
-  transition: opacity 1s ease;
 }
 
 #home-content {

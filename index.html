@@ -118,7 +118,7 @@
 
   <!-- スクリプト -->
 <script>
-document.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("load", () => {
   const door = document.querySelector(".door");
   const home = document.getElementById("home-content");
 
@@ -129,34 +129,27 @@ document.addEventListener("DOMContentLoaded", () => {
     "images/door4.png"
   ];
 
-  let opened = false; // ← これで1回しか動かないようにする
+  let index = 0;
 
-  door.addEventListener("click", () => {
-    if (opened) return; // すでに開いてたら無視
-    opened = true;
-
-    // ドアを順に切り替え（0.3秒ごと）
-    let index = 0;
-    const interval = setInterval(() => {
-      index++;
-      if (index < frames.length) {
-        door.style.backgroundImage = `url('${frames[index]}')`;
-      } else {
-        clearInterval(interval);
-        // 開ききったあとフェードアウト
+  // 0.4秒ごとに画像切り替え（1回だけ）
+  const interval = setInterval(() => {
+    index++;
+    if (index < frames.length) {
+      door.style.backgroundImage = `url('${frames[index]}')`;
+    } else {
+      clearInterval(interval);
+      // 開ききったら少し待ってフェードアウト
+      setTimeout(() => {
+        door.classList.add("fade-out");
         setTimeout(() => {
-          door.classList.add("fade-out");
-          setTimeout(() => {
-            document.getElementById("door-container").style.display = "none";
-            home.classList.add("show");
-          }, 1000);
-        }, 300);
-      }
-    }, 300);
-  });
+          document.getElementById("door-container").style.display = "none";
+          home.classList.add("show");
+        }, 1000);
+      }, 400);
+    }
+  }, 400);
 });
 </script>
-
 </body>
 </html>
 
