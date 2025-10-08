@@ -167,25 +167,32 @@ a.button {
 }
 
 /* ドア画像 */
+#door-container {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
 .door {
-  width: 266px;   /* 各コマの幅 */
-  height: 400px;  /* 各コマの高さ */
-  background: url('images/door1.png') center top no-repeat;
-  background-size: 266px 1600px; /* 400px × 4コマ = 1600px */
+  width: 266px;
+  height: 400px;
+  background: url('images/door1.png') center/cover no-repeat;
+  transition: opacity 0.5s ease;
+  cursor: pointer;
 }
 
-/* アニメーション開始 */
-.door.open {
-  animation: doorOpen 2s steps(4) forwards;
+/* 開いたあとの演出 */
+.door.fade-out {
+  opacity: 0;
+  transition: opacity 1s ease;
 }
 
-/* 上から下へ4コマ分移動する */
-@keyframes doorOpen {
-  0% { background-position: 0 0; }
-  100% { background-position: 0 -1600px; }
-}
-
-/* ホームコンテンツ（最初は非表示） */
 #home-content {
   opacity: 0;
   transition: opacity 1.5s ease;
