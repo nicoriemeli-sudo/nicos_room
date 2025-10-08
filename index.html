@@ -35,7 +35,7 @@
 </style>
 
 <div id="door-container">
-  <div class="door"></div>
+  <img src="images/door.gif" alt="ドアアニメーション" class="door">
 </div>
 
 
@@ -120,34 +120,17 @@
 <script>
 window.addEventListener("load", () => {
   const door = document.querySelector(".door");
+  const doorContainer = document.getElementById("door-container");
   const home = document.getElementById("home-content");
 
-  const frames = [
-    "images/door1.png",
-    "images/door2.png",
-    "images/door3.png",
-    "images/door4.png"
-  ];
-
-  let index = 0;
-
-  // 0.4秒ごとに画像切り替え（1回だけ）
-  const interval = setInterval(() => {
-    index++;
-    if (index < frames.length) {
-      door.style.backgroundImage = `url('${frames[index]}')`;
-    } else {
-      clearInterval(interval);
-      // 開ききったら少し待ってフェードアウト
-      setTimeout(() => {
-        door.classList.add("fade-out");
-        setTimeout(() => {
-          document.getElementById("door-container").style.display = "none";
-          home.classList.add("show");
-        }, 1000);
-      }, 400);
-    }
-  }, 400);
+  // GIFの長さに合わせて（例：3秒）ドアをフェードアウト
+  setTimeout(() => {
+    doorContainer.classList.add("fade-out");
+    setTimeout(() => {
+      doorContainer.style.display = "none";
+      home.classList.add("show");
+    }, 1000); // フェードアウト完了後に表示
+  }, 3000); // ← GIFの再生時間に合わせて調整！
 });
 </script>
 </body>

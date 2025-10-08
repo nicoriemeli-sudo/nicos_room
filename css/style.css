@@ -164,18 +164,17 @@ a.button {
   justify-content: center;
   align-items: center;
   z-index: 999;
+  transition: opacity 1s ease;
+}
+
+#door-container.fade-out {
+  opacity: 0;
 }
 
 .door {
   width: 266px;
-  height: 400px;
-  background: url('images/door1.png') center/cover no-repeat;
-  transition: opacity 1s ease;
-}
-
-/* 開いたあとにフェードアウト */
-.door.fade-out {
-  opacity: 0;
+  height: auto;
+  max-height: 400px;
 }
 
 #home-content {
