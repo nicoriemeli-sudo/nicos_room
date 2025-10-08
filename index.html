@@ -129,25 +129,30 @@ document.addEventListener("DOMContentLoaded", () => {
     "images/door4.png"
   ];
 
-  let index = 0;
+  let opened = false; // ← これで1回しか動かないようにする
 
   door.addEventListener("click", () => {
-    // クリックするたびに次の画像へ
-    if (index < frames.length - 1) {
-      index++;
-      door.style.backgroundImage = `url('${frames[index]}')`;
-    }
+    if (opened) return; // すでに開いてたら無視
+    opened = true;
 
-    // 最後の画像まで行ったらフェードアウト
-    if (index === frames.length - 1) {
-      setTimeout(() => {
-        door.classList.add("fade-out");
+    // ドアを順に切り替え（0.3秒ごと）
+    let index = 0;
+    const interval = setInterval(() => {
+      index++;
+      if (index < frames.length) {
+        door.style.backgroundImage = `url('${frames[index]}')`;
+      } else {
+        clearInterval(interval);
+        // 開ききったあとフェードアウト
         setTimeout(() => {
-          document.getElementById("door-container").style.display = "none";
-          home.classList.add("show");
-        }, 1000);
-      }, 300);
-    }
+          door.classList.add("fade-out");
+          setTimeout(() => {
+            document.getElementById("door-container").style.display = "none";
+            home.classList.add("show");
+          }, 1000);
+        }, 300);
+      }
+    }, 300);
   });
 });
 </script>

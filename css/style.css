@@ -155,16 +155,6 @@ a.button {
 
 /* ドア全体 */
 #door-container {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  background: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-}
 
 /* ドア画像 */
 #door-container {
