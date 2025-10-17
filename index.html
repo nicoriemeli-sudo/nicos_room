@@ -168,7 +168,6 @@
   <!-- スクリプト -->
 <script>
 window.addEventListener("load", () => {
-  const door = document.querySelector(".door");
   const doorContainer = document.getElementById("door-container");
   const home = document.getElementById("home-content");
   const backToTop = document.getElementById('back-to-top');
@@ -177,28 +176,27 @@ window.addEventListener("load", () => {
   backToTop.style.display = 'none';
 
 
-  // GIFの長さに合わせて（例：3秒）ドアをフェードアウト
+
+let doorOpened = false;
+
+setTimeout(() => {
+  doorContainer.classList.add("fade-out");
   setTimeout(() => {
-    doorContainer.classList.add("fade-out");
-    setTimeout(() => {
-      doorContainer.style.display = "none";
-      home.classList.add("show");
+    doorContainer.style.display = "none";
+    home.classList.add("show");
+    backToTop.style.display = 'block';
+    doorOpened = true; // ドアが開いたフラグ
+  }, 1000);
+}, 3000);
 
-       // ドアが開いた後に「上に戻る」ボタンを表示
-      backToTop.style.display = 'block';
-    }, 1000); // フェードアウト完了後
-  }, 3000); // GIFの再生時間に合わせて調整
-
-
-
-  // 上に戻るボタンのスムーズスクロール
-  backToTop.addEventListener('click', function(e){
+ backToTop.addEventListener('click', function(e){
     e.preventDefault();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
-});
+
 
 window.addEventListener('scroll', () => {
+  if (!doorOpened) return; // ドアが開くまでは無視
   if (window.scrollY > 100) {
     backToTop.style.display = 'block';
   } else {
