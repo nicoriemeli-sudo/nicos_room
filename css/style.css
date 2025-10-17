@@ -119,14 +119,6 @@ a.button {
   background: #b3d4fc; /* 水色っぽく */
 }
 
-#home-content {
-  opacity: 0;
-  transition: opacity 1.5s ease;
-}
-
-#home-content.show {
-  opacity: 1;
-}
 
 /* ドア全体 */
 #door-container {
@@ -161,12 +153,6 @@ a.button {
   opacity: 1;
 }
 
-
-#blog iframe {
-  max-width: 100%;
-  height: 800px;
-  border: 2px solid red; /* 読み込み確認用 */
-}
 
 
 .christmas-gallery img {
@@ -223,14 +209,18 @@ a.button {
   opacity: 1;
 }
 /* 画面幅が600px以下のスマホ向け */
+
 @media (max-width: 600px) {
   nav {
     flex-direction: column; /* 横並び→縦並び */
-    gap: 0.5rem;            /* 項目の間隔を狭く */
-    padding: 0.5rem;
+    gap: 0.3rem;            /* 項目の間隔を狭く */
+    padding: 0.3rem;
   }
 
   nav a {
-    font-size: 0.9rem;      /* 文字サイズを少し小さく */
+    font-size: 0.85rem;      /* 文字サイズを少し小さく */
   }
+}
+#back-to-top {
+  display: none; /* 初期非表示 */
 }

@@ -164,7 +164,8 @@
   </div>
 
 　<!-- 上に戻るボタン -->
-  <a href="#" id="back-to-top" title="上に戻る">🌼 上に戻る</a>
+// ドアアニメーションが終わった後に表示
+backToTop.style.display = 'block';
 
   <!-- スクリプト -->
 <script>
@@ -199,6 +200,13 @@ window.addEventListener("load", () => {
   });
 });
 
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 100) {
+    backToTop.style.display = 'block';
+  } else {
+    backToTop.style.display = 'none';
+  }
+});
 
 
 </script>
