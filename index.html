@@ -180,13 +180,19 @@ window.addEventListener("load", () => {
 let doorOpened = false;
 
 setTimeout(() => {
-  doorContainer.classList.add("fade-out");
+ if (doorContainer) {
+      doorContainer.style.transition = "opacity 1s ease";
+      doorContainer.style.opacity = 0; 
+
   setTimeout(() => {
     doorContainer.style.display = "none";
-    home.classList.add("show");
+     if (home) {
+          home.style.opacity = 1;
+        }
     backToTop.style.display = 'block';
     doorOpened = true; // ドアが開いたフラグ
   }, 1000);
+   }
 }, 3000);
 
  backToTop.addEventListener('click', function(e){

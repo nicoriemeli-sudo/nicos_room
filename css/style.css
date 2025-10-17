@@ -147,6 +147,7 @@ a.button {
 #home-content {
   opacity: 0;
   transition: opacity 1.5s ease;
+  display: block;
 }
 
 #home-content.show {
