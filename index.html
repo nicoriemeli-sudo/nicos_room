@@ -165,7 +165,8 @@
 
 　<!-- 上に戻るボタン -->
 <a href="#" id="back-to-top" title="上に戻る">🌼 上に戻る</a>
-  <!-- スクリプト -->
+  
+<!-- スクリプト -->
 <script>
 window.addEventListener("load", () => {
   const doorContainer = document.getElementById("door-container");
@@ -179,19 +180,19 @@ window.addEventListener("load", () => {
 
 let doorOpened = false;
 
-setTimeout(() => {
- if (doorContainer) {
-      doorContainer.style.transition = "opacity 1s ease";
-      doorContainer.style.opacity = 0; 
-
+ // 3秒後にドアをフェードアウト
   setTimeout(() => {
-    doorContainer.style.display.add("fade-out"); // CSSでフェードアウト
-  setTimeout(() => {
-    doorContainer.style.display = "none"; // 完全に非表示に
-    home.classList.add("show");     
-  }, 1000);
-}, 3000);
+    doorContainer.classList.add("fade-out"); // CSSでopacityを0にする
 
+    // 1秒後に完全に非表示にしてホームを表示
+    setTimeout(() => {
+      doorContainer.style.display = "none";
+      home.classList.add("show");  // CSSでフェードイン
+      backToTop.style.display = 'block';
+      doorOpened = true;           // ドアが開いたフラグ
+    }, 1000);
+  }, 3000);
+  
  backToTop.addEventListener('click', function(e){
     e.preventDefault();
     window.scrollTo({ top: 0, behavior: 'smooth' });
