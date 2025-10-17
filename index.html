@@ -172,6 +172,11 @@ window.addEventListener("load", () => {
   const door = document.querySelector(".door");
   const doorContainer = document.getElementById("door-container");
   const home = document.getElementById("home-content");
+  const backToTop = document.getElementById('back-to-top');
+
+    // ボタンは最初非表示にしておく
+  backToTop.style.display = 'none';
+
 
   // GIFの長さに合わせて（例：3秒）ドアをフェードアウト
   setTimeout(() => {
@@ -179,17 +184,20 @@ window.addEventListener("load", () => {
     setTimeout(() => {
       doorContainer.style.display = "none";
       home.classList.add("show");
-    }, 1000); // フェードアウト完了後に表示
-  }, 3000); // ← GIFの再生時間に合わせて調整！
+
+       // ドアが開いた後に「上に戻る」ボタンを表示
+      backToTop.style.display = 'block';
+    }, 1000); // フェードアウト完了後
+  }, 3000); // GIFの再生時間に合わせて調整
+
+
+
+  // 上に戻るボタンのスムーズスクロール
+  backToTop.addEventListener('click', function(e){
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 });
-
-
-// 上に戻るボタンのスムーズスクロール
-document.getElementById('back-to-top').addEventListener('click', function(e){
-  e.preventDefault();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-
 
 
 
