@@ -222,3 +222,15 @@ a.button {
   transform: scale(1.2) rotate(10deg);
   opacity: 1;
 }
+/* 画面幅が600px以下のスマホ向け */
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column; /* 横並び→縦並び */
+    gap: 0.5rem;            /* 項目の間隔を狭く */
+    padding: 0.5rem;
+  }
+
+  nav a {
+    font-size: 0.9rem;      /* 文字サイズを少し小さく */
+  }
+}
