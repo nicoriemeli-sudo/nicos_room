@@ -39,13 +39,13 @@ nav a {
 
 /* Homeだけ赤にする */
 nav a:nth-child(1) {
-  color: red;
+  color: #8c4e4e;
 }
 
 
 /* Aboutだけ赤にする */
 nav a:nth-child(5) {
-  color: red;
+  color: #8c4e4e;
 }
 
 /* クリックした時に動き */
