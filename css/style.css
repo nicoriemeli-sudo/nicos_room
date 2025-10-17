@@ -37,13 +37,13 @@ nav a {
   font-weight: bold;
 }
 
-/* Homeだけ赤にする */
+
 nav a:nth-child(1) {
   color: #8c4e4e;
 }
 
 
-/* Aboutだけ赤にする */
+
 nav a:nth-child(5) {
   color: #8c4e4e;
 }
@@ -148,7 +148,6 @@ a.button {
   opacity: 0;
   transition: opacity 1.5s ease;
   display: none; /* display:none にする */
-  z-index: 1;
 }
 
 #home-content.show {
