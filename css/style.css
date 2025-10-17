@@ -101,25 +101,9 @@ a.button {
   border-radius: 20px;
   text-decoration: none;
 }
-/* ドア全体 */
-#door-container {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  background: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-}
 
-.door {
-  width: 266px;
-  height: auto;
-  max-height: 400px;
-  /* background: url('images/door.gif') center/cover no-repeat; ←これを削除！ */
-}
+
+
 
 
 
@@ -188,13 +172,6 @@ a.button {
   border: 2px solid red; /* 読み込み確認用 */
 }
 
-/* クリスマスギャラリー */
-.christmas-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-  margin-top: 1rem;
-}
 
 .christmas-gallery img {
   width: 100%;

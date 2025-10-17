@@ -163,6 +163,9 @@
     </footer>
   </div>
 
+　<!-- 上に戻るボタン -->
+  <a href="#" id="back-to-top" title="上に戻る">🌼</a>
+
   <!-- スクリプト -->
 <script>
 window.addEventListener("load", () => {
@@ -179,16 +182,19 @@ window.addEventListener("load", () => {
     }, 1000); // フェードアウト完了後に表示
   }, 3000); // ← GIFの再生時間に合わせて調整！
 });
-</script>
 
-// スムーズスクロール
+
+// 上に戻るボタンのスムーズスクロール
 document.getElementById('back-to-top').addEventListener('click', function(e){
   e.preventDefault();
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
 
-<a href="#" id="back-to-top" title="上に戻る">🌼</a>
+
+
+</script>
+
 
 </body>
 </html>
