@@ -185,14 +185,11 @@ setTimeout(() => {
       doorContainer.style.opacity = 0; 
 
   setTimeout(() => {
-    doorContainer.style.display = "none";
-     if (home) {
-          home.style.opacity = 1;
-        }
-    backToTop.style.display = 'block';
-    doorOpened = true; // ドアが開いたフラグ
+    doorContainer.style.display.add("fade-out"); // CSSでフェードアウト
+  setTimeout(() => {
+    doorContainer.style.display = "none"; // 完全に非表示に
+    home.classList.add("show");     
   }, 1000);
-   }
 }, 3000);
 
  backToTop.addEventListener('click', function(e){
