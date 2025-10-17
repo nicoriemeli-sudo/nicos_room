@@ -180,6 +180,16 @@ window.addEventListener("load", () => {
   }, 3000); // ← GIFの再生時間に合わせて調整！
 });
 </script>
+
+// スムーズスクロール
+document.getElementById('back-to-top').addEventListener('click', function(e){
+  e.preventDefault();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+
+<a href="#" id="back-to-top" title="上に戻る">🌼</a>
+
 </body>
 </html>
 
