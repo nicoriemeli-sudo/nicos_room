@@ -187,3 +187,10 @@ a.button {
   height: 800px;
   border: 2px solid red; /* 読み込み確認用 */
 }
+/* 画像の共通スタイル */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto; /* 中央寄せ */
+}
