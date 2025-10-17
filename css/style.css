@@ -147,11 +147,12 @@ a.button {
 #home-content {
   opacity: 0;
   transition: opacity 1.5s ease;
-  display: block;
+  display: none; /* display:none にする */
   z-index: 1;
 }
 
 #home-content.show {
+  display: block; /* フェードイン時に表示 */
   opacity: 1;
 }
 
