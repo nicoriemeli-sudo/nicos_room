@@ -1,3 +1,5 @@
+
+
 window.addEventListener("load", () => {
   const doorContainer = document.getElementById("door-container");
   const home = document.getElementById("home-content");
