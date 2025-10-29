@@ -226,3 +226,10 @@ a.button {
 #back-to-top {
   display: none; /* 初期非表示 */
 }
+.language-switch {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  font-size: 14px;
+  z-index: 1000;
+}
