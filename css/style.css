@@ -189,7 +189,7 @@ a.button {
 .button.mercari {
   background: #ffb84d; /* オレンジ系 */
 }
-}
+
 
 #back-to-top:hover {
   transform: scale(1.2) rotate(10deg);
@@ -228,8 +228,7 @@ a.button {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #ffdadb;   /* 元の背景色を使う */
-  border-radius: 50%;
+  background: transparent;
   box-shadow: 0 3px 6px rgba(0,0,0,0.2);
   text-decoration: none;
   z-index: 1000;
@@ -238,7 +237,7 @@ a.button {
 
 /* 中の画像をちょうど良く収める */
 #back-to-top img {
-  width: 60%;    /* 画像は丸内の60%に */
+  width: 80%;    /* 画像は丸内の80%に */
   height: auto;
   display: block;
   pointer-events: none; /* 画像上のクリックを邪魔しない */
