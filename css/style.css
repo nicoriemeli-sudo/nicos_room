@@ -189,21 +189,6 @@ a.button {
 .button.mercari {
   background: #ffb84d; /* オレンジ系 */
 }
-/* 上に戻るボタン（お花アイコン風） */
-#back-to-top {
-  position: fixed;
-  bottom: 15px;
-  right: 15px;
-  font-size: 1.5rem; /* お花アイコンの大きさ */
-  background: #ffdadb; /* ボタンの背景色 */
-  color: #d36c6c;      /* お花の色 */
-  padding: 0.3rem;
-  border-radius: 50%;  /* 丸くして花っぽく */
-  text-decoration: none;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-  opacity: 0.8;
-  transition: all 0.3s;
-  z-index: 1000;
 }
 
 #back-to-top:hover {
@@ -238,8 +223,8 @@ a.button {
   position: fixed;
   bottom: 15px;
   right: 15px;
-  width: 56px;           /* ボタン自体のサイズ（丸） */
-  height: 56px;
+  width: 70px;           /* ボタン自体のサイズ（丸） */
+  height: 70px;
   display: flex;
   justify-content: center;
   align-items: center;
