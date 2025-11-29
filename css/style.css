@@ -208,9 +208,6 @@ a.button {
     font-size: 0.85rem;      /* 文字サイズを少し小さく */
   }
 }
-#back-to-top {
-  display: none; /* 初期非表示 */
-}
 .language-switch {
   position: fixed;
   top: 10px;
@@ -223,13 +220,11 @@ a.button {
   position: fixed;
   bottom: 15px;
   right: 15px;
-  width: 70px;           /* ボタン自体のサイズ（丸） */
-  height: 70px;
+  width: 80px;           /* ボタン自体のサイズ（丸） */
+  height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: transparent;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
   text-decoration: none;
   z-index: 1000;
   overflow: hidden;
@@ -237,9 +232,8 @@ a.button {
 
 /* 中の画像をちょうど良く収める */
 #back-to-top img {
-  width: 80%;    /* 画像は丸内の80%に */
+  width: 90%;    /* 画像は丸内の90%に */
   height: auto;
-  display: block;
   pointer-events: none; /* 画像上のクリックを邪魔しない */
 }
 
