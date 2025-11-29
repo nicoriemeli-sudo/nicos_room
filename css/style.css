@@ -220,8 +220,8 @@ a.button {
   position: fixed;
   bottom: 15px;
   right: 15px;
-  width: 80px;           /* ボタン自体のサイズ（丸） */
-  height: 80px;
+  width: 90px;           /* ボタン自体のサイズ（丸） */
+  height: 90px;
   display: flex;
   justify-content: center;
   align-items: center;
