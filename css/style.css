@@ -233,3 +233,34 @@ a.button {
   font-size: 14px;
   z-index: 1000;
 }
+/* back-to-top 内の img を調整（既存の丸いボタン風デザインを活かす） */
+#back-to-top {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  width: 56px;           /* ボタン自体のサイズ（丸） */
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffdadb;   /* 元の背景色を使う */
+  border-radius: 50%;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+  text-decoration: none;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+/* 中の画像をちょうど良く収める */
+#back-to-top img {
+  width: 60%;    /* 画像は丸内の60%に */
+  height: auto;
+  display: block;
+  pointer-events: none; /* 画像上のクリックを邪魔しない */
+}
+
+/* hover の動き（今のスタイルを踏襲） */
+#back-to-top:hover {
+  transform: scale(1.12) rotate(6deg);
+  transition: transform 0.2s;
+}
