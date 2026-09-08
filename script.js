@@ -40,9 +40,8 @@ window.addEventListener("load", () => {
 
 // --------------------
 // Works ギャラリー
-// 自動スクロール ＋ マウス・指で操作
+// マウス位置に追従してスクロール
 // --------------------
-
 const worksSlider = document.querySelector('.works-slider');
 const worksTrack = document.querySelector('.works-track');
 const worksSet = document.querySelector('.works-set');
@@ -50,16 +49,9 @@ const worksSet = document.querySelector('.works-set');
 if (worksSlider && worksTrack && worksSet) {
 
   let position = 0;
-  let isDragging = false;
-  let startX = 0;
-  let startPosition = 0;
-  let moved = false;
-
-  const speed = 0.35;
 
   // 1セット分の幅
   let setWidth = worksSet.getBoundingClientRect().width;
-
 
   // --------------------
   // 無限ループ
@@ -77,7 +69,6 @@ if (worksSlider && worksTrack && worksSet) {
 
   }
 
-
   // --------------------
   // 表示位置を更新
   // --------------------
@@ -91,99 +82,50 @@ if (worksSlider && worksTrack && worksSet) {
 
   }
 
+  // --------------------
+  // マウス位置
+  // --------------------
+
+  let mouseX = window.innerWidth / 2;
+
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+  });
 
   // --------------------
-  // 自動スクロール
+  // マウス追従スクロール
   // --------------------
 
   function autoScroll() {
 
-    if (!isDragging) {
-      position -= speed;
-      updatePosition();
+    const screenWidth = window.innerWidth;
+
+    // 画面中央からの距離
+    const distanceFromCenter =
+      (mouseX - screenWidth / 2) / (screenWidth / 2);
+
+    // 最大速度
+    const maxSpeed = 2.5;
+
+    // 中央付近ではほぼ停止
+    let speed = distanceFromCenter * maxSpeed;
+
+    // 小さい動きは無視
+    if (Math.abs(speed) < 0.08) {
+      speed = 0;
     }
+
+    // マウス右 → ギャラリー右
+    // マウス左 → ギャラリー左
+    position += speed;
+
+    updatePosition();
 
     requestAnimationFrame(autoScroll);
 
   }
 
   autoScroll();
-
-
-  // --------------------
-  // マウス・指でつかむ
-  // --------------------
-
-  worksSlider.addEventListener('pointerdown', (e) => {
-
-    isDragging = true;
-    moved = false;
-
-    startX = e.clientX;
-    startPosition = position;
-
-    worksSlider.setPointerCapture(e.pointerId);
-
-  });
-
-
-  // --------------------
-  // ドラッグ中
-  // --------------------
-
-  worksSlider.addEventListener('pointermove', (e) => {
-
-    if (!isDragging) return;
-
-    const moveX = e.clientX - startX;
-
-    if (Math.abs(moveX) > 5) {
-      moved = true;
-    }
-
-    position = startPosition + moveX;
-
-    updatePosition();
-
-  });
-
-
-  // --------------------
-  // 指・マウスを離す
-  // --------------------
-
-  worksSlider.addEventListener('pointerup', (e) => {
-
-    isDragging = false;
-
-    if (worksSlider.hasPointerCapture(e.pointerId)) {
-      worksSlider.releasePointerCapture(e.pointerId);
-    }
-
-  });
-
-
-  worksSlider.addEventListener('pointercancel', () => {
-
-    isDragging = false;
-
-  });
-
-
-  // --------------------
-  // ドラッグした時はリンクを開かない
-  // --------------------
-
-  worksSlider.addEventListener('click', (e) => {
-
-    if (moved) {
-      e.preventDefault();
-      e.stopPropagation();
-      moved = false;
-    }
-
-  }, true);
-
 
   // --------------------
   // 画面サイズ変更対応
