@@ -74,24 +74,6 @@ section {
   padding: 1rem;
 }
 
-.works, .gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1rem;
-}
-
-.work-item, .gallery-item {
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  padding: 1rem;
-  text-align: center;
-}
-
-.work-item img, .gallery-item img {
-  width: 100%;
-  border-radius: 8px;
-}
 
 /* フッター */
 footer {
@@ -269,4 +251,151 @@ a.button {
 #about h2,
 #shop h2 {
   font-family: "Homemade Apple", cursive;
+}
+
+
+/* --------------------
+   Works 横スクロールギャラリー
+-------------------- */
+
+.works-slider {
+  width: 100%;
+  overflow: hidden;
+  padding: 2.5rem 0 3rem;
+}
+
+.works-track {
+  display: flex;
+  width: max-content;
+  animation: worksScroll 90s linear infinite;
+}
+
+.works-set {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  flex-shrink: 0;
+}
+
+.works-item {
+  --rotate: 0deg;
+
+  display: block;
+  flex-shrink: 0;
+
+  width: 250px;
+  height: 300px;
+
+  transform: rotate(var(--rotate));
+  transition: transform 0.3s ease;
+
+  text-decoration: none;
+}
+
+.works-item img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  border-radius: 22px;
+
+  display: block;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+
+/* それぞれ少しずつ角度を変える */
+
+.works-item:nth-child(1) {
+  --rotate: -4deg;
+}
+
+.works-item:nth-child(2) {
+  --rotate: 3deg;
+}
+
+.works-item:nth-child(3) {
+  --rotate: -2deg;
+}
+
+.works-item:nth-child(4) {
+  --rotate: 5deg;
+}
+
+.works-item:nth-child(5) {
+  --rotate: -3deg;
+}
+
+.works-item:nth-child(6) {
+  --rotate: 2deg;
+}
+
+.works-item:nth-child(7) {
+  --rotate: -5deg;
+}
+
+.works-item:nth-child(8) {
+  --rotate: 3deg;
+}
+
+.works-item:nth-child(9) {
+  --rotate: -2deg;
+}
+
+.works-item:nth-child(10) {
+  --rotate: 4deg;
+}
+
+
+/* マウスを乗せたら少し大きくなる */
+
+.works-item:hover {
+  transform: rotate(var(--rotate)) scale(1.08);
+  z-index: 10;
+}
+
+
+/* ゆっくり横へ */
+
+@keyframes worksScroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
+/* マウスを乗せている間は止める */
+
+.works-slider:hover .works-track {
+  animation-play-state: paused;
+}
+
+
+/* スマホ */
+
+@media (max-width: 600px) {
+
+  .works-slider {
+    padding: 2rem 0 2.5rem;
+  }
+
+  .works-set {
+    gap: 1.5rem;
+  }
+
+  .works-item {
+    width: 180px;
+    height: 230px;
+  }
+
+  .works-track {
+    animation-duration: 80s;
+  }
+
 }
