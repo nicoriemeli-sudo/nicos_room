@@ -24,20 +24,22 @@ header h1 {
 }
 
 /* ナビゲーション */
+nav {
+  background: #fff0e1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
 nav a {
   text-decoration: none;
   color: #8c4e4e;
   font-weight: normal;
   font-family: "Homemade Apple", cursive;
   font-size: 1.3rem;
-}
-
-nav a {
-  text-decoration: none;
-  color: #8c4e4e;
-  font-weight: bold;
-  font-family: "Pacifico", cursive;
-  font-size: 1.1rem;
+  white-space: nowrap;
 }
 
 
