@@ -40,71 +40,159 @@ window.addEventListener("load", () => {
 
 // --------------------
 // Works ギャラリー
-// マウス・指でドラッグ
+// 自動スクロール ＋ マウス・指で操作
 // --------------------
 
 const worksSlider = document.querySelector('.works-slider');
 const worksTrack = document.querySelector('.works-track');
+const worksSet = document.querySelector('.works-set');
 
-if (worksSlider && worksTrack) {
+if (worksSlider && worksTrack && worksSet) {
 
+  let position = 0;
   let isDragging = false;
   let startX = 0;
   let startPosition = 0;
+  let moved = false;
 
-  // ドラッグ開始
+  const speed = 0.35;
+
+  // 1セット分の幅
+  let setWidth = worksSet.getBoundingClientRect().width;
+
+
+  // --------------------
+  // 無限ループ
+  // --------------------
+
+  function normalizePosition() {
+
+    if (position <= -setWidth) {
+      position += setWidth;
+    }
+
+    if (position > 0) {
+      position -= setWidth;
+    }
+
+  }
+
+
+  // --------------------
+  // 表示位置を更新
+  // --------------------
+
+  function updatePosition() {
+
+    normalizePosition();
+
+    worksTrack.style.transform =
+      `translate3d(${position}px, 0, 0)`;
+
+  }
+
+
+  // --------------------
+  // 自動スクロール
+  // --------------------
+
+  function autoScroll() {
+
+    if (!isDragging) {
+      position -= speed;
+      updatePosition();
+    }
+
+    requestAnimationFrame(autoScroll);
+
+  }
+
+  autoScroll();
+
+
+  // --------------------
+  // マウス・指でつかむ
+  // --------------------
+
   worksSlider.addEventListener('pointerdown', (e) => {
+
     isDragging = true;
+    moved = false;
+
     startX = e.clientX;
-
-    const matrix = new DOMMatrix(
-      getComputedStyle(worksTrack).transform
-    );
-
-    startPosition = matrix.m41;
-
-    worksTrack.style.animationPlayState = 'paused';
+    startPosition = position;
 
     worksSlider.setPointerCapture(e.pointerId);
+
   });
 
 
+  // --------------------
   // ドラッグ中
+  // --------------------
+
   worksSlider.addEventListener('pointermove', (e) => {
+
     if (!isDragging) return;
 
     const moveX = e.clientX - startX;
-    const newPosition = startPosition + moveX;
 
-    worksTrack.style.transform =
-      `translateX(${newPosition}px)`;
+    if (Math.abs(moveX) > 5) {
+      moved = true;
+    }
+
+    position = startPosition + moveX;
+
+    updatePosition();
+
   });
 
 
-  // ドラッグ終了
-  worksSlider.addEventListener('pointerup', () => {
-    if (!isDragging) return;
+  // --------------------
+  // 指・マウスを離す
+  // --------------------
+
+  worksSlider.addEventListener('pointerup', (e) => {
 
     isDragging = false;
 
-    worksTrack.style.animation = 'none';
+    if (worksSlider.hasPointerCapture(e.pointerId)) {
+      worksSlider.releasePointerCapture(e.pointerId);
+    }
 
-    // 少し待ってから自動スクロール再開
-    setTimeout(() => {
-      worksTrack.style.animation = '';
-    }, 100);
   });
 
 
-  // キャンセルされた場合
   worksSlider.addEventListener('pointercancel', () => {
+
     isDragging = false;
 
-    worksTrack.style.animation = 'none';
+  });
 
-    setTimeout(() => {
-      worksTrack.style.animation = '';
-    }, 100);
+
+  // --------------------
+  // ドラッグした時はリンクを開かない
+  // --------------------
+
+  worksSlider.addEventListener('click', (e) => {
+
+    if (moved) {
+      e.preventDefault();
+      e.stopPropagation();
+      moved = false;
+    }
+
+  }, true);
+
+
+  // --------------------
+  // 画面サイズ変更対応
+  // --------------------
+
+  window.addEventListener('resize', () => {
+
+    setWidth = worksSet.getBoundingClientRect().width;
+
   });
 
 }
