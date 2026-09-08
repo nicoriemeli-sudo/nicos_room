@@ -20,16 +20,16 @@ header h1 {
   margin: 0;
   font-size: 3rem;
   color: #d36c6c;
-  font-family: "Homemade Apple", cursive;
+  font-family: "Pacifico", cursive;
 }
 
 /* ナビゲーション */
-nav {
-  background: #fff0e1;
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  padding: 1rem;
+nav a {
+  text-decoration: none;
+  color: #8c4e4e;
+  font-weight: normal;
+  font-family: "Homemade Apple", cursive;
+  font-size: 1.3rem;
 }
 
 nav a {
