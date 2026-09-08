@@ -255,3 +255,9 @@ a.button {
   transform: scale(1.12) rotate(6deg);
   transition: transform 0.2s;
 }
+
+
+/* 日本語フォント */
+.japanese {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+}
