@@ -88,9 +88,9 @@ if (worksSlider && worksTrack && worksSet) {
 
   let mouseX = window.innerWidth / 2;
 
-  worksSlider.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-  });
+  document.addEventListener('mousemove', (e) => {
+  mouseX = e.clientX;
+});
 
   // --------------------
   // マウス追従スクロール
