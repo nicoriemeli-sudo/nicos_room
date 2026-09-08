@@ -88,7 +88,7 @@ if (worksSlider && worksTrack && worksSet) {
 
   let mouseX = window.innerWidth / 2;
 
-  document.addEventListener('mousemove', (e) => {
+  worksSlider.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
   });
 
