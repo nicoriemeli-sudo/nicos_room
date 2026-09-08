@@ -367,26 +367,6 @@ a.button {
 
 
 
-/* マウスを乗せている間は止める */
-
-.works-slider {
-  width: 100%;
-  overflow: hidden;
-  padding: 1.5rem 0 2rem;
-  cursor: grab;
-  user-select: none;
-}
-
-.works-slider:active {
-  cursor: grabbing;
-}
-
-.works-track {
-  display: flex;
-  width: max-content;
-  animation: worksScroll 90s linear infinite;
-  will-change: transform;
-}
 
 
 /* スマホ */
@@ -406,8 +386,5 @@ a.button {
     height: 230px;
   }
 
-  .works-track {
-    animation-duration: 80s;
-  }
-
+ 
 }
