@@ -22,7 +22,7 @@ header h1 {
 }
 
 header h1 img {
-  width: min(300px, 75vw);
+  width: min(320px, 75vw);
   height: auto;
   display: block;
   margin: 0 auto;
