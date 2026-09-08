@@ -261,3 +261,12 @@ a.button {
 .japanese {
   font-family: 'M PLUS Rounded 1c', sans-serif;
 }
+
+/* セクション見出しをメニューバーと同じフォントにする */
+#works h2,
+#events h2,
+#christmas h2,
+#about h2,
+#shop h2 {
+  font-family: "Homemade Apple", cursive;
+}
