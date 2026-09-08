@@ -262,12 +262,19 @@ a.button {
   width: 100%;
   overflow: hidden;
   padding: 1.5rem 0 2rem;
+  cursor: grab;
+  user-select: none;
+  touch-action: pan-y;
+}
+
+.works-slider:active {
+  cursor: grabbing;
 }
 
 .works-track {
   display: flex;
   width: max-content;
-  animation: worksScroll 90s linear infinite;
+  will-change: transform;
 }
 
 .works-set {
@@ -357,17 +364,7 @@ a.button {
 }
 
 
-/* ゆっくり横へ */
 
-@keyframes worksScroll {
-  from {
-    transform: translateX(0);
-  }
-
-  to {
-    transform: translateX(-50%);
-  }
-}
 
 
 /* マウスを乗せている間は止める */
