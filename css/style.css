@@ -155,11 +155,13 @@ a.button {
 }
 
 .door {
+  display: block;
   width: 266px;
   height: auto;
-  max-height: 400px;
+  max-width: 90vw;
+  max-height: 80vh;
+  object-fit: contain;
 }
-
 #home-content {
   opacity: 0;
   transition: opacity 1.5s ease;
